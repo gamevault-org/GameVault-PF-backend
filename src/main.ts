@@ -46,7 +46,7 @@ async function bootstrap() {
   //     },
   //   }),
   // );
-  const swaggerConfig = new DocumentBuilder()
+  /* const swaggerConfig = new DocumentBuilder()
     .setTitle('GameVault - PF Co 53 - FT/FS')
     .setDescription(
       'Esta es una API construida con Nest para ser empleada en PF Cohorte 53 - Grupo 5 - FT/FS',
@@ -54,7 +54,7 @@ async function bootstrap() {
     .setVersion('1.0')
     .build();
   const document = SwaggerModule.createDocument(app, swaggerConfig);
-  SwaggerModule.setup('api', app, document);
+  SwaggerModule.setup('api', app, document); */
 
   await app.listen(Number(PORT ?? 3001));
 }
