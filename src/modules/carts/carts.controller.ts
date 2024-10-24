@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   Param,
   ParseUUIDPipe,
@@ -23,8 +24,16 @@ export class CartsController {
     @Param('uuid', ParseUUIDPipe) userId: string,
     @Body() body: CreateOrAddCartDto,
   ) {
-    const { products } = body;
+    const { product } = body;
+    return await this.cartsService.createOrAddCart(userId, product);
+  }
 
-    return await this.cartsService.createOrAddCart(userId, products);
+  @Delete(':uuid')
+  async removeProduct(
+    @Param('uuid', ParseUUIDPipe) userId: string,
+    @Body() body: CreateOrAddCartDto,
+  ) {
+    const { product } = body;
+    return await this.cartsService.removeProduct(userId, product);
   }
 }

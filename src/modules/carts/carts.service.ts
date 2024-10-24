@@ -5,7 +5,15 @@ import { CartsRepository } from './carts.repository';
 export class CartsService {
   constructor(private readonly cartsRepository: CartsRepository) {}
 
-  async getCartByUserId(userId: string) {}
+  async getCartByUserId(userId: string) {
+    return await this.cartsRepository.getCartByUserId(userId);
+  }
 
-  async createOrAddCart(userId: string, products: Array<string>) {}
+  async createOrAddCart(userId: string, product: number) {
+    return await this.cartsRepository.createOrAddCart(userId, product);
+  }
+
+  async removeProduct(userId: string, product: number) {
+    return await this.cartsRepository.removeProduct(userId, product);
+  }
 }
